@@ -8,12 +8,14 @@ public class Robot {
     private static int MIN_Y = -200, MAX_Y = 200;
     private static int MIN_X = -100, MAX_X = 100;
 
+    private static final Position CENTRE = new Position(0,0);
+
     private int positionX;
     private int positionY;
     private String currentDirection;
     private String status;
     private String name;
-
+    private Position position;
     public Robot(String name) {
         this.name = name;
         this.status = "Ready";
