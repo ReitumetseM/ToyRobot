@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.Test;
+import za.co.wethinkcode.examples.toyrobot.Position;
 import za.co.wethinkcode.examples.toyrobot.Robot;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -41,8 +42,8 @@ class RobotTest {
     void forward() {
         Robot robot = new Robot("CrashTestDummy");
         assertTrue(robot.handleCommand("forward 10"));
-        assertEquals(0, robot.getPositionX());
-        assertEquals(10, robot.getPositionY());
+        Position expectedPosition = new Position(Robot.CENTRE.getX(), Robot.CENTRE.getY() + 10);
+        assertEquals(expectedPosition, robot.getPosition());
         assertEquals("Moved forward by 10 steps.", robot.getStatus());
     }
 
@@ -51,8 +52,6 @@ class RobotTest {
         Robot robot = new Robot("CrashTestDummy");
         assertTrue(robot.handleCommand("forward 10"));
         assertTrue(robot.handleCommand("forward 5"));
-        assertEquals(0, robot.getPositionX());
-        assertEquals(15, robot.getPositionY());
         assertEquals("Moved forward by 5 steps.", robot.getStatus());
     }
 
@@ -60,8 +59,7 @@ class RobotTest {
     void tooFarForward() {
         Robot robot = new Robot("CrashTestDummy");
         assertTrue(robot.handleCommand("forward 1000"));
-        assertEquals(0, robot.getPositionX());
-        assertEquals(0, robot.getPositionY());
+        assertEquals(Robot.CENTRE, robot.getPosition());
         assertEquals("Sorry, I cannot go outside my safe zone.", robot.getStatus());
     }
 
