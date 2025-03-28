@@ -8,6 +8,9 @@ public class Robot {
     private static int MIN_Y = -200, MAX_Y = 200;
     private static int MIN_X = -100, MAX_X = 100;
 
+    private final Position TOP_LEFT = new Position(-100,100);
+    private final Position BOTTOM_RIGHT = new Position(100,-200);
+
     public static final Position CENTRE = new Position(0,0);
 
     private int positionX;
@@ -86,6 +89,7 @@ public class Robot {
         return MIN_X <= newX && newX <= MAX_X
                 && MIN_Y <= newY && newY <= MAX_Y;
     }
+
 
     private boolean updatePosition(int nrSteps){
         int newY = positionY;
