@@ -8,7 +8,7 @@ public class Robot {
     private static int MIN_Y = -200, MAX_Y = 200;
     private static int MIN_X = -100, MAX_X = 100;
 
-    private static final Position CENTRE = new Position(0,0);
+    public static final Position CENTRE = new Position(0,0);
 
     private int positionX;
     private int positionY;
@@ -22,6 +22,9 @@ public class Robot {
         this.positionX = 0;
         this.positionY = 0;
         this.currentDirection = "NORTH";
+    }
+    public Position getPosition() {
+        return this.position;
     }
 
     public String getStatus() {

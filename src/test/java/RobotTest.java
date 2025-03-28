@@ -21,8 +21,7 @@ class RobotTest {
     @Test
     void initialPosition() {
         Robot robot = new Robot("CrashTestDummy");
-        assertEquals(0, robot.getPositionX());
-        assertEquals(0, robot.getPositionY());
+        assertEquals(Robot.CENTRE, robot.getPosition());
         assertEquals("NORTH", robot.getCurrentDirection());
     }
 
